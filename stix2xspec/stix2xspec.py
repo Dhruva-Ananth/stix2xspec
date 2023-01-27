@@ -171,8 +171,8 @@ def background_subtract(spectrogram, spectrogram_bk, counts_spec, testing = Fals
         spectrogram.t_axis.duration = np.expand_dims(spectrogram.t_axis.duration,1)
     
     corrected_counts_bk = bk_count_manipulations(corrected_counts_bk, spectrogram.t_axis.duration, spectrogram_bk.data['timedel'], energy_bins, spectrogram.eff_ewidth, ntimes)
-    spec_in_bk = bk_count_manipulations(spec_in_bk, spectrogram.t_axis.duration, spectrogram_bk.data['timedel'], energy_bins, spectrogram.eff_ewidth, ntimes, name = 'spec_in_bk')
-    error_bk = bk_count_manipulations(corrected_error_bk, spectrogram.t_axis.duration, spectrogram_bk.data['timedel'], energy_bins, spectrogram.eff_ewidth, ntimes, name = 'error_bk', error = True)
+    spec_in_bk = bk_count_manipulations(spec_in_bk, spectrogram.t_axis.duration, spectrogram_bk.data['timedel'], energy_bins, spectrogram.eff_ewidth, ntimes)
+    error_bk = bk_count_manipulations(corrected_error_bk, spectrogram.t_axis.duration, spectrogram_bk.data['timedel'], energy_bins, spectrogram.eff_ewidth, ntimes, error = True)
 
     spec_in_corr = corrected_counts - corrected_counts_bk
     spec_in_uncorr = counts_spec - spec_in_bk #is this neccessary to keep or is it an OSPEX thing? would simplify input if didn't need to pass in counts_spec
